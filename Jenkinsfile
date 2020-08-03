@@ -3,26 +3,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+		sh 'echo "Triggered via develop branch. Will only build code."'
                 sh 'mvn -B -DskipTests clean package'
             }
         }
-        stage('Test') {
-	when {
-                branch 'develop'
-            }
-            steps {
-                sh 'mvn test'
-            }
-            post {
-                always {
-                    junit 'target/surefire-reports/*.xml'
-                }
-            }
-        }
-        stage('Deliver') {
-            steps {
-                sh './jenkins/scripts/deliver.sh'
-            }
-        }
-    }
 }
