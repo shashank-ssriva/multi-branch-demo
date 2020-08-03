@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
 		sh 'echo "Triggered via develop branch. Will only build code."'
-                sh 'mvn -B -DskipTests clean package'
+                sh '/usr/local/bin/mvn -B -DskipTests clean package'
             }
         }
  }
