@@ -1,1 +1,1 @@
-# Multi-branch Pipeline demo
+# Multibranch Pipeline demo
